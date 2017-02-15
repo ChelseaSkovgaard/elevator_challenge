@@ -1,4 +1,6 @@
 export default class Person {
-  constructor() {
+  constructor(name, floor) {
+    this.name = name;
+    this.currentFloor = floor;
   }
 }
