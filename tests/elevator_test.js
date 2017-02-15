@@ -9,6 +9,9 @@ const Person = require('../person').default
 describe('Elevator', function() {
   const elevator = new Elevator()
   const alex = new Person("Alex", 2)
+  const bob = new Person("Bob", 3)
+  const sue = new Person("Sue", 6)
+
 
   afterEach(function() {
     elevator.reset();
@@ -67,6 +70,31 @@ describe('Elevator', function() {
     elevator.stops = 2
   });
 
-  it()
+  it('should drop off multiple people at multiple floors', () => {
+    // const alex = new Person("Alex", 2)
+    // const bob = new Person("Bob", 3)
+    // const sue = new Person("Sue", 6)
 
+    elevator.requestFloor(bob, 9)
+
+    assert.equal(elevator.currentFloor, 9)
+
+    assert.equal(elevator.state, 'idle')
+
+    assert.equal(elevator.stops, 2)
+
+    assert.equal(elevator.floors, 9)
+
+    elevator.requestFloor(sue, 2)
+
+    assert.equal(elevator.currentFloor, 3)
+
+    assert.equal(elevator.state, 'idle')
+
+    assert.equal(elevator.stops, 3)
+
+    assert.equal(elevator.floors, 19)
+  });
+
+  
 });

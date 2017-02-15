@@ -12,14 +12,11 @@ export default class Elevator {
 
   requestFloor(person, floor) {
       this.currentRequests.push({person: person.name, pickUpFloor: person.currentFloor, dropOffFloor: floor});
-      this.calculateFloorsTraversed(floor)
-      this.moveToFloor(floor)
-      this.calculateStops()
+      this.addressAllRequests(floor)
   };
 
-  addressAllRequests() {
-    for (var i = 0; i < currentRequests.length; i++) {
-      floor = currentRequests.floor[i]
+  addressAllRequests(floor) {
+    for (var i = 0; i < this.currentRequests.length; i++) {
       this.calculateFloorsTraversed(floor)
       this.moveToFloor(floor)
       this.calculateStops()
