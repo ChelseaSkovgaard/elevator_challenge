@@ -28,7 +28,7 @@ describe('Elevator', function() {
     assert.equal(elevator.floors, 5)
   });
 
-  xit('should bring a rider to a floor below their current floor', () => {
+  it('should bring a rider to a floor below their current floor', () => {
     elevator.currentFloor = 5
 
     elevator.requestFloor(alex, 4)
@@ -42,7 +42,31 @@ describe('Elevator', function() {
     assert.equal(elevator.floors, 1)
   });
 
-  xit('should bring a rider to a floor below their current floor', () => {
+  it('should move the floor', () => {
+    elevator.currentFloor = 4
+
+    elevator.moveToFloor(3)
+
+    assert.equal(elevator.currentFloor, 3)
   });
+
+  it(' should calculate the floors traversed', () => {
+    elevator.currentFloor = 3
+    assert.equal(elevator.floors, 0)
+
+    elevator.calculateFloorsTraversed(1)
+
+    assert.equal(elevator.floors, 2)
+  });
+
+  it('should caculate the number of stops', () =>{
+    elevator.currentRequests = 2
+
+    elevator.calculateStops()
+
+    elevator.stops = 2
+  });
+
+  it()
 
 });
